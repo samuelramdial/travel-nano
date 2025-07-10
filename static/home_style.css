@@ -1,0 +1,106 @@
+.home-bg-image {
+    background-image: url('./images/home_bg.png');
+    height: calc(125vh - 126px );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .home-blur::before {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.4);
+    backdrop-filter: blur(1px);
+  }
+  
+  .home .center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 84px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .home .title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .home .lrnMore-btn .btn {
+    background: #000000;
+    border: 1px solid #0D6EFD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    width: 225px;
+    color: white;
+    height: 63px;
+    cursor: pointer;
+  }
+  
+  .home-news-div {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 200px;
+    position: relative;
+    bottom: -230px;
+  }
+  .home .card {
+   
+    width: 200px;
+    
+    position: relative;
+    /* bottom:0; */
+    overflow: visible;
+    background-color: transparent;
+}
+#newsdetails{
+    background-color: transparent;
+    overflow: visible;
+    
+}
+.home .card-title {
+    max-height: 150px;
+    overflow: hidden;
+    color:rgb(17, 17, 17);
+}
+  
+  @media screen and (max-width:800px) {
+    .home-news-div {
+       
+        justify-content: center;
+        /* align-items: end; */
+        height: 100px;
+        position: relative;
+        bottom: -450px;
+        /* width: 200px; */
+      }
+      .home .item-box{
+        display: flex;
+        gap:20px;
+        /* width: 300px; */
+
+      }
+      .home .item-box img{
+        width: 200px;
+        height: 100px;
+      }
+      .home .card {
+   
+        width: 100%;
+      
+    }
+
+  }

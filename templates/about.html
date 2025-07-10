@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block stylesheet %}
+    <link href="{{ url_for('static', filename='about_page.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <h1 class="title"> Our Story</h1>
+    <section class="container">
+        <div class="left">
+            <p class="desc">For new travelers and travel lovers, we look to inform our users of currency conversion, rules and regulations of different countries.
+                We look to differentiate ourselves through our online social blogging platform to better share information centered around traveling 
+                and help establish connections between users.
+            </p>
+            <p class="desc">We were inspired to create this due to our interest in travel content and felt that we could create a platform to inspire other travelers
+                to share their experiences. We want this platform to eventually serve as a major hub for our users to communicate with each other
+                and use important traveling tools like a currency converter all in one place.
+            </p>
+        </div> 
+
+        <div class="right">
+            <img class="pic" src="{{ url_for ('static', filename='images/about_img.jpg') }}" alt="Beautiful waterfall view">
+        </div>
+    </section>
+{% endblock %}

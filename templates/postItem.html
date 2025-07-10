@@ -1,0 +1,44 @@
+{%extends 'layout.html'%}
+
+{%block stylesheet%}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+<link href="{{url_for('static',filename='postItem.css')}}" rel="stylesheet" type='text/css'>
+<link href="{{url_for('static',filename='comment.css')}}" rel="stylesheet" type='text/css'>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+
+<section class="content-item grey" id="blog-item">
+    <div class="container">
+        <div class="row">
+            <!-- BLOG POST - START -->
+            <div class="col-sm blog">
+                  <h2>{{postItem.post_title}}</h2>
+                    <ul class="blog-detail list-unstyled list-inline">
+                      <li><i class="fa fa-calendar"></i>{{postItem.post_day}}/{{postItem.post_month}}/{{postItem.post_year}}</li>
+                        <!--li><i class="fa fa-clock-o"></i>{{postItem.current_date}}</li -->
+                        <li><i class="fa fa-user"></i>{{postItem.username}}</li>
+                        
+                        <li><i class="fa fa-comments"></i>n comments</li>
+                    </ul>
+                    <p >
+                        <img class="img-responsive pull-left" src="/static/post_images/{{ postItem.picture_file }}" alt="{{postItem.post_title}}">
+                            {{postItem.caption}}    
+                    </p>
+                    
+              
+                </div>
+                <!-- BLOG POST - END -->
+               
+            </div>
+                {%include 'comments.html'%}
+        </div>
+    </section>
+{%endblock%}

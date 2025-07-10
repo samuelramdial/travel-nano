@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block stylesheet %}
+    <link href="{{ url_for('static', filename='currency-styles.css') }}" rel = "stylesheet" type = "text/css">
+    <script defer src="{{ url_for('static', filename='currency.js')}}"></script>
+{% endblock %}
+{% block content %}
+    <div class = "container">
+        <div class = "wrapper">
+            <h1> Currency Converter</h1>
+            <form action = "/currency" method = "POST" id = "convert-form">
+                <div class = "amount">
+                    <p>Enter Amount</p>
+                    <input type = "number" step = '0.01' id = "amount" name = "amount" value = "1">
+                </div>
+                <div class = "drop-list">
+                    <div class = "from">
+                        <p>From</p>
+                        <div class = "select-box">
+                            <img src = 'https://flagsapi.com/US/flat/64.png' alt = "flag">
+                            <select id = 'fromCurrency' name = "fromCurrency"> 
+                            </select>
+                        </div>
+                    </div>
+                    <div class = "icon"><i class = "fas fa-exchange-alt"></i></div>
+                    <div class = "to">
+                        <p>To</p>
+                        <div class = "select-box">
+                            <img src = 'https://flagsapi.com/CA/flat/64.png' alt = "flag">
+                            <select id = 'toCurrency' name = "toCurrency"> 
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class = "exchange-rate">{{amount}} {{fromCurrency}} = {{finalConversion}} {{toCurrency}}</div>
+                <button type = 'submit'>Convert</button>
+            </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

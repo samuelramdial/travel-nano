@@ -1,0 +1,100 @@
+
+<!-- This page is the template for the posts page.-->
+{%extends 'layout.html'%}
+{% block stylesheet%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link href="{{ url_for('static', filename='posts.css')}}" rel="stylesheet" type="text/css">
+<script defer src="{{ url_for('static', filename='post_script.js')}}"></script>
+
+
+{%endblock%}
+{%block title%} <title>posts </title> {%endblock%}
+{%block content%}
+    <section class="blog-listing gray-bg">
+        <div class="">
+            <div class="row align-items-start">
+                <div class="col-lg m-15px-tb">
+                    <div class="row list-box">
+                        {%for post in posts%}
+                        <div id='box-item' class="col-sm-6 box-item">
+                            <div class="blog-grid">
+                                <div class="blog-img">
+
+                                    <div class="date">
+
+                                        <span>{{post.post_day}}</span>
+                                        <label>{{post.post_month}}</label>
+
+                                    </div>
+                                    
+                                    <a href="{{ url_for('postItem',post_title = post.post_title) }}?post_id={{ post.post_id }}">
+                                      
+                                        <img src= "/static/post_images/{{ post.picture_file }}"  title="" alt="{{post.post_title}}"  height="225" width="400">
+                                      
+                                </div>
+                                  
+                                <div class="blog-info">
+
+                                    <h5><a href="{{ url_for('postItem',post_title = post.post_title) }}?post_id={{ post.post_id }}">{{post.post_title}}</a></h5>
+
+                                    <p>{{post.caption|truncate(50, True)}}</p>
+                                    <div class="btn-bar">
+                                        <a href="{{ url_for('postItem',post_title = post.post_title) }}?post_id={{ post.post_id }}" class="px-btn-arrow">
+                                            <span>Read More</span>
+                                            <i class="arrow"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
+                        {%endfor%}
+                    </div>
+
+                    {% if posts|length > 9 %}
+                    <div class="col-12">
+                        <ul class="pagination justify-content-center">
+                            {% if current_page > 1 %}
+                            <li class="page-item ">
+                                <a class="page-link" href="/posts?page={{ current_page - 1 }}" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+                            </li>
+                            {%else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="/posts?page={{ current_page - 1 }}" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+                            </li>
+                            {% endif %}
+                            
+                            {% for page_num in range(1, num_pages + 1) %}
+                                {% if page_num == current_page %}
+                                    <li class="page-item active">
+                                        <a class="page-link" href="/posts?page={{ page_num }}">{{ page_num }}</a>
+                                    </li>
+                                {% elif (current_page <= 2 and page_num <= 3) or (current_page >= num_pages - 1 and page_num >= num_pages - 2) or (current_page - 1 <= page_num and page_num <= current_page + 1) %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="/posts?page={{ page_num }}">{{ page_num }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                           
+                            {% if current_page < num_pages %}
+                            <li class="page-item">
+                                <a class="page-link" href="/posts?page={{ current_page + 1 }}"><i class="fas fa-chevron-right"></i></a>
+
+                            </li>
+                            {%else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="/posts?page={{ current_page + 1 }}"><i class="fas fa-chevron-right"></i></a>
+
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                
+
+                   
+               
+            </div>
+        </div>
+    </section>
+{%endblock%}

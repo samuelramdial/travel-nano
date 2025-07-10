@@ -1,0 +1,86 @@
+/* Global Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/* Header styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF9E3;
+}
+
+header img {
+    margin-top: 0.5rem;
+}
+
+.nav-container {
+    display: flex;
+    gap: 1rem;
+    margin-right: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+.brand-logo {
+    width: 10%;
+    display: flex;
+    gap: 0.2rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+
+/* Body styles */
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #637297;
+    font-family: 'Inter', sans-serif;
+    min-height: 125vh;
+}
+
+main {
+    flex-grow: 1;
+}
+/* Footer styles */
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF9E3;
+    /* position: fixed; */
+    /* left: 0px; */
+    height: 50px;
+    width: 100%;
+    /* bottom: 0px; */
+    align-items: center;
+}
+
+#footer p {
+    margin-bottom: 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 0.2rem;
+}
+
+
+
+
+

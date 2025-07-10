@@ -1,0 +1,27 @@
+.title {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.pic {
+    display: block;
+    float: right;
+    width: 95%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+}
+
+.left {
+    margin-top: 15%;
+    float: left;
+    width: 47%;
+}
+.right {
+    margin-top: 10%;
+    float: left;
+    width: 53%;
+}
+
+.desc {
+    color: white;
+}

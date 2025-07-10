@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-8">
+            <div class="d-flex flex-column comment-section">
+                <div class="bg-white p-2">
+                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="" width="40">
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Name</span><span class="date text-black-50"> 6 May 2023 at 19:50</span></div>
+                    </div>
+                    
+                    <div class="mt-2">
+                        <p class="comment-text">{{comment}}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+				<form action="{{ url_for('postItem',post_title = postItem.uploadTitle) }}?post_id={{ postItem.id }}" method="post" class="form-container" enctype="multipart/form-data">
+					<div class="bg-light p-2">
+						<div class="d-flex flex-row align-items-start">
+							
+							<textarea name = 'comment' id='comment' placeholder='write a comment....' class="form-control ml-1 shadow-none textarea"></textarea>
+						</div>
+						<div class="mt-2 text-right">
+							<button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button>
+							<button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
